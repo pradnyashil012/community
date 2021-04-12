@@ -23,19 +23,19 @@ class PostFactory extends Factory
      *
      * @return array
      */
-    public function definition()
-    {
-        $id = rand(30, 300);
-        $image = "https://loremflickr.com/g/640/480/".$id;
-        return [
-            'title' => $this->faker->sentence,
-            'slug' => Str::slug($this->faker->sentence),
-            'image' => $image,
-            'description' => $this->faker->text(400),
-            'category_id' => function(){
-                return Category::inRandomOrder()->first()->id;
-            },
-            'user_id' => 1,
-        ];
-    }
+    // public function definition()
+    // {
+    //     $id = rand(30, 300);
+    //     $image = "https://loremflickr.com/g/640/480/".$id;
+    //     return [
+    //         'title' => $this->faker->sentence,
+    //         'slug' => Str::slug($this->faker->sentence),
+    //         'image' => $image,
+    //         'description' => $this->faker->text(400),
+    //         'category_id' => function(){
+    //             return Category::inRandomOrder()->first()->id;
+    //         },
+    //         'user_id' => 1,
+    //     ];
+    // }
 }

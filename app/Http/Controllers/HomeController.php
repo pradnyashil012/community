@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Session;
 use App\Models\Contact;
+use App\Models\Ask;
 
 class HomeController extends Controller
 {
@@ -40,6 +41,11 @@ class HomeController extends Controller
         return view('website.contact');
     }
 
+    public function ask()
+    {
+        return view('website.ask');
+    }
+
     public function send_message(Request $request)
     {
         $this->validate($request, [
@@ -52,6 +58,21 @@ class HomeController extends Controller
         $contact = Contact::create($request->all());
         
         Session::flash('message-send', 'Message sent successfully!');
+        return redirect()->back();
+    }
+
+    public function ask_question(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:200',
+            'email' => 'required|max:200',
+            'subject' =>'required|max:255',
+            'question' => 'required|min:100'
+        ]);
+
+        $question = Ask::create($request->all());
+        
+        Session::flash('question-asked', 'Question asked successfully!');
         return redirect()->back();
     }
 

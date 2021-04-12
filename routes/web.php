@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AskController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,8 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('website.contact');
 
+Route::get('/ask', [App\Http\Controllers\HomeController::class, 'ask'])->name('website.ask');
+
 Route::get('/category/{slug}', [App\Http\Controllers\FrontEndController::class, 'category'])->name('website.category');
 
 Route::get('/tag/{slug}', [App\Http\Controllers\FrontEndController::class, 'tag'])->name('website.tag');
@@ -31,6 +34,8 @@ Route::get('/tag/{slug}', [App\Http\Controllers\FrontEndController::class, 'tag'
 Route::get('/post/{slug}', [App\Http\Controllers\FrontEndController::class, 'post'])->name('website.post');
 
 Route::post('/contact', [App\Http\Controllers\HomeController::class, 'send_message'])->name('website.contact');
+
+Route::post('/ask', [App\Http\Controllers\HomeController::class, 'ask_question'])->name('website.ask');
 
 //Admin Panel Routes
 Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function (){
@@ -56,6 +61,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function (){
     Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
     Route::get('/contact/show/{id}', [App\Http\Controllers\ContactController::class, 'show'])->name('contact.show');
     Route::get('/contact/delete/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('contact.destroy');
+
+    //questions
+    Route::get('/questions', [App\Http\Controllers\ContactController::class, 'index'])->name('ask.index');
+    Route::get('/questions/show/{id}', [App\Http\Controllers\ContactController::class, 'show'])->name('ask.show');
+    Route::get('/questions/delete/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('ask.destroy');
     
     
 });

@@ -249,7 +249,7 @@
       </div>
     </section>
 
-    <div class="site-section bg-light">
+    <!--<div class="site-section bg-light">
       <div class="container">
 
         <div class="row mb-5">
@@ -304,7 +304,7 @@
         </div>
 
       </div>
-    </div>
+    </div>-->
 
 
     <div class="site-section bg-lightx">
@@ -313,7 +313,7 @@
           <div class="col-md-5">
             <div class="subscribe-1 ">
               <h2>Subscribe to our newsletter</h2>
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nesciunt error illum a explicabo, ipsam nostrum.</p>
+              <p class="mb-5">Know Latest Problems and their Solutions</p>
               <form action="#" class="d-flex">
                 <input type="text" class="form-control" placeholder="Enter your email address">
                 <input type="submit" class="btn btn-primary" value="Subscribe">

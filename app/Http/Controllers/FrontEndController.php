@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Ask;
 
 class FrontEndController extends Controller
 {
@@ -112,6 +113,11 @@ class FrontEndController extends Controller
     public function contact()
     {
         return view('website.contact');
+    }
+
+    public function ask()
+    {
+        return view('website.ask');
     }
 
     /**

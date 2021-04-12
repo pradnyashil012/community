@@ -38,7 +38,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
 
-                   
+
 
                     <div class="col-4 site-logo">
                         <a href="{{route('website')}}" class="text-black h2 mb-0">Ipay Community</a>
@@ -60,7 +60,7 @@
                                 class="icon-menu h3"></span></a>
                     </div>
 
-                    
+
 
                 </div>
 
@@ -68,11 +68,11 @@
         </header>
 
         <div class="col-12 search-form-wrap js-search-form">
-                        <form method="get" action="#">
-                            <input type="text" id="s" class="form-control" placeholder="Search...">
-                            <button class="search-btn" type="submit"><span class="icon-search"></span></button>
-                        </form>
-                    </div>
+            <form method="get" action="#">
+                <input type="text" id="s" class="form-control" placeholder="Search...">
+                <button class="search-btn" type="submit"><span class="icon-search"></span></button>
+            </form>
+        </div>
 
         @yield('content')
 
@@ -91,11 +91,12 @@
                             <li><a href="{{ route('website')}}">Home</a></li>
                         </ul>
                         <ul class="list-unstyled float-left">
-                        @foreach($categories as $category)
+                            @foreach($categories as $category)
                             <li>
-                                <a href="{{ route('website.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
+                                <a
+                                    href="{{ route('website.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
                             </li>
-                        @endforeach
+                            @endforeach
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -104,11 +105,16 @@
                         <div>
                             <h3 class="footer-heading mb-4">Connect With Us</h3>
                             <p>
-                                @if($setting->facebook)<a href="{{ $setting->facebook }}" target="_blank"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>@endif
-                                @if($setting->twitter)<a href="{{ $setting->twitter }}" target="_blank"><span class="icon-twitter p-2"></span></a>@endif
-                                @if($setting->instagram)<a href="{{ $setting->instagram }}" target="_blank"><span class="icon-instagram p-2"></span></a>@endif
-                                @if($setting->reddit)<a href="{{ $setting->reddit }}" target="_blank"><span class="icon-rss p-2"></span></a>@endif
-                                @if($setting->email)<a href="{{ $setting->mail }}" target="_blank"><span class="icon-envelope p-2"></span></a>@endif
+                                @if($setting->facebook)<a href="{{ $setting->facebook }}" target="_blank"><span
+                                        class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>@endif
+                                @if($setting->twitter)<a href="{{ $setting->twitter }}" target="_blank"><span
+                                        class="icon-twitter p-2"></span></a>@endif
+                                @if($setting->instagram)<a href="{{ $setting->instagram }}" target="_blank"><span
+                                        class="icon-instagram p-2"></span></a>@endif
+                                @if($setting->reddit)<a href="{{ $setting->reddit }}" target="_blank"><span
+                                        class="icon-rss p-2"></span></a>@endif
+                                @if($setting->email)<a href="{{ $setting->mail }}" target="_blank"><span
+                                        class="icon-envelope p-2"></span></a>@endif
                             </p>
                         </div>
                     </div>
@@ -116,8 +122,8 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <p>
-                           
-                            {{ $setting->copyright }} | This template is made with 
+
+                            {{ $setting->copyright }} | This template is made with
                         </p>
                     </div>
                 </div>

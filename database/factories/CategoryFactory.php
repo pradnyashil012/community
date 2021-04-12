@@ -22,11 +22,11 @@ class CategoryFactory extends Factory
      *
      * @return array
      */
-    public function definition()
-    {
-        return [
-            'name' => $this->faker->name,
-            'slug' => Str::slug($this->faker->name),
-        ];
-    }
+    // public function definition()
+    // {
+    //     return [
+    //         'name' => $this->faker->name,
+    //         'slug' => Str::slug($this->faker->name),
+    //     ];
+    // }
 }

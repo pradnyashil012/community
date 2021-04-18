@@ -67,9 +67,9 @@
                   </div>
                   <div class="col-6">
                   <div class="form-group">
-                    <label for="reddit">Reddit</label>
-                    <input type="text" name="reddit" value="{{ $setting->reddit }}" 
-                    class="form-control" id="reddit" placeholder="Enter Reddit Url">
+                    <label for="reddit">LinkedIn</label>
+                    <input type="text" name="linkedin" value="{{ $setting->linkedin }}" 
+                    class="form-control" id="linkedin" placeholder="Enter LinkedIn Url">
                   </div>
                   </div>
                   <div class="col-6">

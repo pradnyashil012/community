@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mini Blog</title>
+    <title>Ipay Community</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('website') }}/css/aos.css">
 
     <link rel="stylesheet" href="{{ asset('website') }}/css/style.css">
+    @yield('style')
 </head>
 
 <body>
@@ -69,7 +70,7 @@
 
         <div class="col-12 search-form-wrap js-search-form">
             <form method="get" action="#">
-                <input type="text" id="s" class="form-control" placeholder="Search...">
+                <input type="search" id="search" name="search" class="form-control" placeholder="Search...">
                 <button class="search-btn" type="submit"><span class="icon-search"></span></button>
             </form>
         </div>
@@ -111,8 +112,8 @@
                                         class="icon-twitter p-2"></span></a>@endif
                                 @if($setting->instagram)<a href="{{ $setting->instagram }}" target="_blank"><span
                                         class="icon-instagram p-2"></span></a>@endif
-                                @if($setting->reddit)<a href="{{ $setting->reddit }}" target="_blank"><span
-                                        class="icon-rss p-2"></span></a>@endif
+                                @if($setting->linkedin)<a href="{{ $setting->linkedin }}" target="_blank"><span
+                                        class="icon-linkedin p-2"></span></a>@endif
                                 @if($setting->email)<a href="{{ $setting->mail }}" target="_blank"><span
                                         class="icon-envelope p-2"></span></a>@endif
                             </p>

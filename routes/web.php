@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -6,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AskController;
+use App\Http\Controllers\SearchController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,16 +19,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
-
 //frontend routes
 Route::get('/', [App\Http\Controllers\FrontEndController::class, 'home'])->name('website');
 
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('website.about');
 
-Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('website.contact');
+Route::get('/contact', [App\Http\Controllers\FrontEndController::class, 'contact'])->name('website.contact');
 
-Route::get('/ask', [App\Http\Controllers\HomeController::class, 'ask'])->name('website.ask');
+Route::get('/ask', [App\Http\Controllers\FrontEndController::class, 'ask'])->name('website.ask');
 
 Route::get('/category/{slug}', [App\Http\Controllers\FrontEndController::class, 'category'])->name('website.category');
 
@@ -33,9 +34,12 @@ Route::get('/tag/{slug}', [App\Http\Controllers\FrontEndController::class, 'tag'
 
 Route::get('/post/{slug}', [App\Http\Controllers\FrontEndController::class, 'post'])->name('website.post');
 
-Route::post('/contact', [App\Http\Controllers\HomeController::class, 'send_message'])->name('website.contact');
+Route::post('/contact', [App\Http\Controllers\FrontEndController::class, 'send_message'])->name('website.contact');
 
-Route::post('/ask', [App\Http\Controllers\HomeController::class, 'ask_question'])->name('website.ask');
+Route::post('/ask', [App\Http\Controllers\FrontEndController::class, 'ask_question'])->name('website.ask');
+
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('website.search');
+
 
 //Admin Panel Routes
 Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function (){

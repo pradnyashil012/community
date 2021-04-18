@@ -9,6 +9,10 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Ask;
+use App\Models\SEARCH;
+use DB;
+use Session;
+use Illuminate\Support\Str;
 
 class FrontEndController extends Controller
 {
@@ -115,9 +119,47 @@ class FrontEndController extends Controller
         return view('website.contact');
     }
 
+    public function send_message(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:200',
+            'email' => 'required|max:200',
+            'subject' =>'required|max:255',
+            'message' => 'required|min:100'
+        ]);
+
+        $contact = Contact::create($request->all());
+        
+        Session::flash('message-send', 'Message sent successfully!');
+        return redirect()->back();
+    }
+
     public function ask()
     {
         return view('website.ask');
+    }
+
+    public function ask_question(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:200',
+            'email' => 'required|max:200',
+            'question' =>'required|max:255',
+            'description' => 'required|min:100'
+        ]);
+
+        $question = Ask::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'question' => $request->question,
+            'slug' => Str::slug($request->question),
+            'description' => $request->description,
+        ]);
+
+        $question->save();
+        
+        Session::flash('question-asked', 'Question asked successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -153,4 +195,5 @@ class FrontEndController extends Controller
     {
         //
     }
+
 }

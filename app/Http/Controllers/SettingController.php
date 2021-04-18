@@ -43,7 +43,7 @@ class SettingController extends Controller
         $setting->facebook = $request->facebook;
         $setting->twitter = $request->twitter;
         $setting->instagram = $request->instagram;
-        $setting->reddit = $request->reddit;
+        $setting->linkedin = $request->linkedin;
         $setting->email = $request->email;
         $setting->description = $request->description;
         $setting->copyright = $request->copyright;

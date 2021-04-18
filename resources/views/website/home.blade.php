@@ -56,8 +56,8 @@
                 <h1>Welcome to the Ipay Payment Help Community</h1>
             </div>
             <div class="col-12 search-form js-search-form">
-                <form method="get" action="#">
-                    <input type="text" id="s" class="form-control" placeholder="Search...">
+                <form method="GET" action="{{ route('website.search') }}">
+                    <input type="search" id="search_query" name="search_query" class="form-control" placeholder="Search...">
                 </form>
             </div>
         </div>

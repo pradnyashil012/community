@@ -69,9 +69,9 @@
         </header>
 
         <div class="col-12 search-form-wrap js-search-form">
-            <form method="get" action="#">
-                <input type="search" id="search" name="search" class="form-control" placeholder="Search...">
-                <button class="search-btn" type="submit"><span class="icon-search"></span></button>
+            <form method="GET" action="{{ route('website.search') }}">
+            <input type="search" id="search_query" name="search_query" class="form-control" placeholder="Search...">
+            
             </form>
         </div>
 

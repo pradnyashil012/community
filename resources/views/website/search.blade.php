@@ -7,8 +7,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <span>Search Page</span>
-            
+            <span>Search Query</span>
+           
+            <h2>{{ Session::get('search_item') }}</h2>
+           
           </div>
         </div>
       </div>

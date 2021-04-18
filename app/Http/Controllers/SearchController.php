@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Search;
 use App\Models\Post;
+use Session;
 
 class SearchController extends Controller
 {
@@ -21,6 +22,7 @@ class SearchController extends Controller
 
         $posts = Post::where('title','LIKE','%'.$search_query.'%')->paginate(6);
         
+        Session::put('search_item', $search_query);
         return view('website.search', compact('posts'));
 
       

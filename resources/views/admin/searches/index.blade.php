@@ -41,18 +41,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @if($messages->count())
-                  @foreach($messages as $message)
+                  @if($searches->count())
+                  @foreach($searches as $search)
                   <tr>
-                      <td>{{ $message->id }}</td>
-                      <td>{{ $message->name }}</td>
-                      <td>{{ $message->email }}</td>
-                      <td>{{ $message->subject }}</td>
-                      <td>{{ $message->message }}</td>
+                      <td>{{ $search->id }}</td>
+                      <td>{{ $search->search_query }}</td>
+                      <td>{{ $search->created_at }}</td>
                       <td class="d-flex">
-                      <a href="{{ route('contact.show', ['id' => $message->id]) }}" class="btn btn-sm btn-success mr-1"><i class="fa fa-eye"></i></a>
-                     
-                       <form action="{{ route('contact.destroy', ['id' => $message->id]) }}" class="mr-1" method="post">
+                      
+                       <form action="{{ route('searches.destroy', ['id' => $search->id]) }}" class="mr-1" method="get">
                       @method("DELETE")
                       @csrf
                       <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
@@ -74,7 +71,7 @@
                 </table>
               </div><!-- /.card-body -->
               <div class="card-footer text-center d-flex justify-content-center">
-              {{ $messages->links('pagination::bootstrap-4') }}
+              {{ $searches->links('pagination::bootstrap-4') }}
               </div>
             </div>
             </div>

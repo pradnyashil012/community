@@ -54,6 +54,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function (){
 
     Route::resource('user', 'UserController');
 
+    Route::resource('contact', 'ContactController');
+
+    Route::resource('ask', 'AskController');
+
+    Route::resource('search', 'SearchController');
+
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');
     Route::post('/profile', [App\Http\Controllers\UserController::class, 'profile_update'])->name('user.profile.update');
 
@@ -67,9 +73,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function (){
     Route::get('/contact/delete/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('contact.destroy');
 
     //questions
-    Route::get('/questions', [App\Http\Controllers\ContactController::class, 'index'])->name('ask.index');
-    Route::get('/questions/show/{id}', [App\Http\Controllers\ContactController::class, 'show'])->name('ask.show');
-    Route::get('/questions/delete/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('ask.destroy');
+    Route::get('/questions', [App\Http\Controllers\AskController::class, 'index'])->name('questions.index');
+
+    //searches
+    Route::get('/searches', [App\Http\Controllers\SearchController::class, 'index'])->name('searches.index');
+    Route::get('/searches/delete/{id}', [App\Http\Controllers\SearchController::class, 'destroy'])->name('searches.destroy');
+
+    
     
     
 });

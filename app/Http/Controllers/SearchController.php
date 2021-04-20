@@ -6,26 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\Search;
 use App\Models\Post;
 use Session;
+use Illuminate\Support\Facades\DB;
+
 
 class SearchController extends Controller
 {
-    public function search(Request $request)
+    public function index(Request $request)
     {
-        $this->validate($request, [
-            'search_query' => 'required|max:200'
-        ]);
-
-        $search_query = $request->search_query;
-        
-        $searches = SEARCH::create($request->all());
-        $searches->save();
-
-        $posts = Post::where('title','LIKE','%'.$search_query.'%')->paginate(6);
-        
-        Session::put('search_item', $search_query);
-        return view('website.search', compact('posts'));
-
+        $searches = DB::table('searches')->orderBy('id', 'DESC')->paginate(10);
+        return view('admin.searches.index', compact('searches'));
       
+    }
+
+    public function destroy($id)
+    {
+            search::find($id)->delete();
+            Session::flash('success', 'Search deleted successfully!');
+       
+        return redirect()->back();
     }
 
 }

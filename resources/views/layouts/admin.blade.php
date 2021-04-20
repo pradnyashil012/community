@@ -122,6 +122,22 @@
             </a>          
           </li>
           <li class="nav-item mt-auto">
+            <a href="{{ route('questions.index') }}" class="nav-link {{ (request()->is('admin/questions*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-envelope"></i>
+              <p>
+                Questions
+              </p>
+            </a>          
+          </li>
+          <li class="nav-item mt-auto">
+            <a href="{{ route('searches.index') }}" class="nav-link {{ (request()->is('admin/searches*')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-envelope"></i>
+              <p>
+                Searches
+              </p>
+            </a>          
+          </li>
+          <li class="nav-item mt-auto">
             <a href="{{ route('setting.edit') }}" class="nav-link {{ (request()->is('admin/setting*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>

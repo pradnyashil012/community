@@ -38,7 +38,7 @@ Route::post('/contact', [App\Http\Controllers\FrontEndController::class, 'send_m
 
 Route::post('/ask', [App\Http\Controllers\FrontEndController::class, 'ask_question'])->name('website.ask');
 
-Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('website.search');
+Route::get('/search', [App\Http\Controllers\FrontEndController::class, 'search'])->name('website.search');
 
 
 //Admin Panel Routes

@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Ask;
-use App\Models\SEARCH;
+use App\Models\Search;
 use DB;
 use Session;
 use Illuminate\Support\Str;
@@ -160,6 +160,25 @@ class FrontEndController extends Controller
         
         Session::flash('question-asked', 'Question asked successfully!');
         return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $this->validate($request, [
+            'search_query' => 'required|max:200'
+        ]);
+
+        $search_query = $request->search_query;
+        
+        $searches = SEARCH::create($request->all());
+        $searches->save();
+
+        $posts = Post::where('title','LIKE','%'.$search_query.'%')->paginate(6);
+        
+        Session::put('search_item', $search_query);
+        return view('website.search', compact('posts'));
+
+      
     }
 
     /**

@@ -57,7 +57,7 @@
             </div>
             <div class="col-12 search-form js-search-form">
                 <form method="GET" action="{{ route('website.search') }}">
-                    <input type="search" id="search_query" name="search_query" class="form-control" placeholder="Search...">
+                    <input type="search" id="search_query" name="search_query" class="form-control" placeholder="Search your issue">
                 </form>
             </div>
         </div>
@@ -163,6 +163,19 @@
     </div>
 </div>-->
 
+<div class="site-section bg-lightx">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-5">
+                <div class="subscribe-1 ">
+                    <h2>Ask Your Question Here</h2>
+                    <p class="mb-5">Din't find the solution, please ask the community</p>
+                    <a href="{{ route('website.ask')}}" class="btn btn-danger" target="_blank">Ask Question</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="site-section bg-lightx">
     <div class="container">

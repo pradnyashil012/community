@@ -7,7 +7,7 @@
             <div class="col-md-12 col-lg-10">
                 <div class="post-entry text-center">
                     <h1 class="">Ask</h1>
-                    <p class="lead mb-4 text-white">Raise Your Question From Here!</p>
+                    <p class="lead mb-4 text-white">Share your issue and get the solutions from the community!</p>
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ class FrontEndController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function help()
     {
         $posts = Post::with('category', 'user')->orderBy('created_at', 'DESC')->take(5)->get();
         $postsFirst2 = $posts->splice(0, 2);
@@ -37,6 +37,12 @@ class FrontEndController extends Controller
         return view('website.home', compact(['posts', 'recentPosts', 'footerPost', 'postsFirst2', 'middlePost', 
         'lastPost', 'firstfooterPost2', 
         'firstfooterPost', 'lastFooterPost']));
+    }
+
+    public function community()
+    {
+        $recentQues = Ask::orderBy('created_at', 'DESC')->paginate(9);
+        return view('website.community', compact(['recentQues']));
     }
 
     /**
@@ -94,6 +100,20 @@ class FrontEndController extends Controller
         if($post){
             return view('website.post', compact('post', 'posts', 'categories', 'tags', 
             'firstrelatedPost', 'firstrelatedPost2', 'lastrelatedPost', 'relatedPost'));
+        }
+        else{
+            return('/');
+        }
+        
+    }
+
+    public function question($slug)
+    {
+
+
+        $que = Ask::where('slug', $slug)->first();
+        if($que){
+            return view('website.question', compact('que'));
         }
         else{
             return('/');

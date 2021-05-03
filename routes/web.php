@@ -20,7 +20,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //frontend routes
-Route::get('/', [App\Http\Controllers\FrontEndController::class, 'home'])->name('website');
+Route::get('/', [App\Http\Controllers\FrontEndController::class, 'help'])->name('website');
+
+Route::get('/community', [App\Http\Controllers\FrontEndController::class, 'community'])->name('website.community');
+
+Route::get('/help', [App\Http\Controllers\FrontEndController::class, 'help'])->name('website.help');
 
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('website.about');
 
@@ -33,6 +37,8 @@ Route::get('/category/{slug}', [App\Http\Controllers\FrontEndController::class, 
 Route::get('/tag/{slug}', [App\Http\Controllers\FrontEndController::class, 'tag'])->name('website.tag');
 
 Route::get('/post/{slug}', [App\Http\Controllers\FrontEndController::class, 'post'])->name('website.post');
+
+Route::get('/question/{slug}', [App\Http\Controllers\FrontEndController::class, 'question'])->name('website.question');
 
 Route::post('/contact', [App\Http\Controllers\FrontEndController::class, 'send_message'])->name('website.contact');
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ipay Community</title>
+    <title>Ipay <?php echo $title; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -42,7 +42,7 @@
 
 
                     <div class="col-4 site-logo">
-                        <a href="{{route('website')}}" class="text-black h2 mb-0">Ipay Community</a>
+                        <a href="{{route('website')}}" class="text-black h2 mb-0">Ipay Help</a>
                     </div>
 
                     <div class="col-8 text-right">

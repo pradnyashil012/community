@@ -1,4 +1,7 @@
-﻿@extends('layouts.website')
+﻿<?php
+$title = "Help";
+?>
+@extends('layouts.website')
 
 @section('content')
   <div class="site-wrap">

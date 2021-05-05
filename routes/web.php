@@ -26,7 +26,7 @@ Route::get('/community', [App\Http\Controllers\FrontEndController::class, 'commu
 
 Route::get('/help', [App\Http\Controllers\FrontEndController::class, 'help'])->name('website.help');
 
-Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('website.about');
+Route::get('/about', [App\Http\Controllers\FrontEndController::class, 'about'])->name('website.about');
 
 Route::get('/contact', [App\Http\Controllers\FrontEndController::class, 'contact'])->name('website.contact');
 
@@ -45,6 +45,8 @@ Route::post('/contact', [App\Http\Controllers\FrontEndController::class, 'send_m
 Route::post('/ask', [App\Http\Controllers\FrontEndController::class, 'ask_question'])->name('website.ask');
 
 Route::get('/search', [App\Http\Controllers\FrontEndController::class, 'search'])->name('website.search');
+
+Route::post('/subscribe', [App\Http\Controllers\FrontEndController::class, 'subscribe'])->name('website.subscribe');
 
 
 //Admin Panel Routes

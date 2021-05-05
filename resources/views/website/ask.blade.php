@@ -1,3 +1,6 @@
+<?php
+$title = "Ask";
+?>
 @extends('layouts.website')
 @section('content')
 <div class="site-cover site-cover-sm same-height overlay single-page"

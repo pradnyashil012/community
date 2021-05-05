@@ -1,3 +1,6 @@
+<?php
+$title = "Contact";
+?>
 @extends('layouts.website')
 @section('content')    
     <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('website') }}/images/img_4.jpg');">

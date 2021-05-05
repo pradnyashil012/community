@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Ask;
+use App\Models\Subscribe;
 use App\Models\Search;
 use DB;
 use Session;
@@ -151,6 +152,22 @@ class FrontEndController extends Controller
         $contact = Contact::create($request->all());
         
         Session::flash('message-send', 'Message sent successfully!');
+        return redirect()->back();
+    }
+
+    public function subscribe(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|max:200',
+        ]);
+
+        $subscribe = Subscribe::create([
+            'email' => $request->email
+        ]);
+
+        $subscribe->save();
+        
+        Session::flash('subscribed', 'Subscribed successfully!');
         return redirect()->back();
     }
 

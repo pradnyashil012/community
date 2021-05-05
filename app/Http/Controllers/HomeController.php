@@ -30,11 +30,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function about()
-    {
-        $user = User::first();
-        return view('website.about', compact('user'));
-    }
+    
 
     public function contact()
     {

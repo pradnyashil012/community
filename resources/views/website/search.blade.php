@@ -1,3 +1,6 @@
+<?php
+$title = "Help";
+?>
 @extends('layouts.website')
 
 @section('content')

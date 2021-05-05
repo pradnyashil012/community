@@ -91,10 +91,16 @@ $title = "Community";
             <div class="subscribe-1 ">
               <h2>Subscribe to our newsletter</h2>
               <p class="mb-5">Know Latest Problems and their Solutions</p>
-              <form action="#" class="d-flex">
-                <input type="text" class="form-control" placeholder="Enter your email address">
-                <input type="submit" class="btn btn-primary" value="Subscribe">
-              </form>
+              <form action="{{ route('website.subscribe') }}" method="post" enctype="multipart/form-data"
+                        class="d-flex">
+                        @csrf
+                        @include('includes.errors')
+                        @if(Session::has('subscribed'))
+                        <div class="alert alert-success">{{ Session::get('subscribed') }}</div><br>
+                        @endif
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email address">
+                        <input type="submit" class="btn btn-primary" value="Subscribe">
+                    </form>
             </div>
           </div>
         </div>
